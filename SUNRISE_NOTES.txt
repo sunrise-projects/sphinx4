@@ -1,0 +1,51 @@
+2/28/2015
+
+Added Hitesh demo.
+https://github.com/hitesh915/speech
+
+Fixed the issue with Hitesh old loading of configurations
+http://sourceforge.net/p/cmusphinx/discussion/sphinx4/thread/e39afe1a/
+
+Fixed multiple recognizer issue in windows
+http://sourceforge.net/p/cmusphinx/discussion/sphinx4/thread/85eb98da/
+
+JSAPI download location for FreeTTS use
+http://sourceforge.net/projects/jsapi/?source=typ_redirect
+http://freetts.sourceforge.net/docs/jsapi_setup.html
+http://tcts.fpms.ac.be/synthesis/mbrola.html voice
+http://tcts.fpms.ac.be/synthesis/mbrola.html binary windows
+http://stackoverflow.com/questions/2847035/having-problems-getting-freetts-and-jsapi-working
+https://maven-us.nuxeo.org/nexus/content/repositories/public/org/mobicents/external/freetts/mbrola/
+http://stackoverflow.com/questions/26236562/mbrola-voices-with-freetts-windows
+
+
+
+C:\lnx1\home\ggon\git-projects\freetts-1.2>java -Dmbrola.base="C:\lnx1\home\ggon\git-projects\mbrola" -jar bin/HelloWorld.jar mbrola_us1
+
+
+Enabled freetts-demo shown in link below:
+http://javaexamplemaven.blogspot.com/2013/01/after-spending-too-much-time-trying-to.html
+http://freetts.sourceforge.net/demo/JSAPI/HelloWorld/README.html
+
+
+
+Use mbrola voice
+http://tcts.fpms.ac.be/synthesis/mbrola.html
+
+
+Copy properties to home folder. 
+Mbrola setup
+http://stackoverflow.com/questions/26236562/mbrola-voices-with-freetts-windows
+What files need to be downloaded?
+FreeTTS with all the libraries (freeTTS 1.2.2-bin) - download here
+MBROLA zip folder mbr301d.zip
+Voices which can be found on the MBROLA website
+
+See installation folder. 
+mbrola-installation
+
+
+
+
+
+

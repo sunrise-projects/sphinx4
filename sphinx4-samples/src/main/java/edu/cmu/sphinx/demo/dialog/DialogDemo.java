@@ -140,14 +140,14 @@ public class DialogDemo {
         LiveSpeechRecognizer jsgfRecognizer =
             new LiveSpeechRecognizer(configuration);
 
-        configuration.setGrammarName("digits.grxml");
-        LiveSpeechRecognizer grxmlRecognizer =
-            new LiveSpeechRecognizer(configuration);
-
-        configuration.setUseGrammar(false);
-        configuration.setLanguageModelPath(LANGUAGE_MODEL);
-        LiveSpeechRecognizer lmRecognizer =
-            new LiveSpeechRecognizer(configuration);
+//        configuration.setGrammarName("digits.grxml");
+//        LiveSpeechRecognizer grxmlRecognizer =
+//            new LiveSpeechRecognizer(configuration);
+//
+//        configuration.setUseGrammar(false);
+//        configuration.setLanguageModelPath(LANGUAGE_MODEL);
+//        LiveSpeechRecognizer lmRecognizer =
+//            new LiveSpeechRecognizer(configuration);
 
         jsgfRecognizer.startRecognition(true);
         while (true) {
@@ -162,11 +162,11 @@ public class DialogDemo {
             if (utterance.startsWith("exit"))
                 break;
 
-            if (utterance.equals("digits")) {
-                jsgfRecognizer.stopRecognition();
-                recognizeDigits(grxmlRecognizer);
-                jsgfRecognizer.startRecognition(true);
-            }
+//            if (utterance.equals("digits")) {
+//                jsgfRecognizer.stopRecognition();
+//                recognizeDigits(grxmlRecognizer);
+//                jsgfRecognizer.startRecognition(true);
+//            }
 
             if (utterance.equals("bank account")) {
                 jsgfRecognizer.stopRecognition();
@@ -174,11 +174,11 @@ public class DialogDemo {
                 jsgfRecognizer.startRecognition(true);
             }
 
-            if (utterance.endsWith("weather forecast")) {
-                jsgfRecognizer.stopRecognition();
-                recognizeWeather(lmRecognizer);
-                jsgfRecognizer.startRecognition(true);
-            }
+//            if (utterance.endsWith("weather forecast")) {
+//                jsgfRecognizer.stopRecognition();
+//                recognizeWeather(lmRecognizer);
+//                jsgfRecognizer.startRecognition(true);
+//            }
         }
 
         jsgfRecognizer.stopRecognition();
