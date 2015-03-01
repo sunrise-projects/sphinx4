@@ -14,6 +14,8 @@ public <action> = (start | stop ) (excel |photo shop |nero |word pad|fire wall |
 
 public <net> = (site) (face book | go girl | mail);
 
+public <read> = (weather | fortune );
+
 /** i have used "go girl" to work with "Google". as there is no word like "google" in the dictionary so 
  *  it wont support that, and that will give you an error of "google" is not a dictionary word. 
  *  and i did same with the facebook , i just divided it in to two words "face" and "book", and that works 

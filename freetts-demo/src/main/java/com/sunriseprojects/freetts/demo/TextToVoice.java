@@ -15,19 +15,29 @@ import javax.speech.synthesis.Synthesizer;
 import javax.speech.synthesis.SynthesizerModeDesc;
 import javax.speech.synthesis.Voice;
 
-public class SpeechUtils {
+public class TextToVoice {
 	SynthesizerModeDesc desc;
 	Synthesizer synthesizer;
 	Voice voice;
-
-	public void init(String voiceName) throws EngineException, AudioException,
+	
+	
+	public TextToVoice() throws Exception {
+		System.setProperty("mbrola.base", "C:\\lnx1\\home\\ggon\\git-projects\\mbrola");
+		init("mbrola_us1");	
+	}
+	
+	public void invoke(String input) throws Exception {
+		doSpeak(input);		
+	}
+	
+	
+	public void close() throws Exception {
+		terminate();
+	}
+	
+	private void init(String voiceName) throws EngineException, AudioException,
 			EngineStateError, PropertyVetoException {
 		if (desc == null) {
-			//default
-//			System.setProperty("freetts.voices",
-//					"com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
-			
-			//have to be setup
 			System.setProperty("freetts.voices",
 					"de.dfki.lt.freetts.en.us.MbrolaVoiceDirectory");
 			desc = new SynthesizerModeDesc(Locale.US);
@@ -35,6 +45,25 @@ public class SpeechUtils {
 			synthesizer = Central.createSynthesizer(desc);
 			synthesizer.allocate();
 			synthesizer.resume();
+			
+			
+			//http://freetts.sourceforge.net/demo/JSAPI/MixedVoices/MixedVoices.java
+			
+			//adjust speed - normal
+			//synthesizer.getSynthesizerProperties().setSpeakingRate(150.0f);
+			
+			//normal
+			synthesizer.getSynthesizerProperties().setSpeakingRate(120.0f);
+			
+			//slow
+			//synthesizer.getSynthesizerProperties().setSpeakingRate(100.0f);
+			
+			//normal pitch
+			synthesizer.getSynthesizerProperties().setPitch(150);
+			
+			//high pitch
+			//synthesizer.getSynthesizerProperties().setPitch(200);
+			
 			SynthesizerModeDesc smd = (SynthesizerModeDesc) synthesizer
 					.getEngineModeDesc();
 			Voice[] voices = smd.getVoices();
@@ -49,7 +78,7 @@ public class SpeechUtils {
 		}
 	}
 
-	public void terminate() throws EngineException, EngineStateError {
+	private void terminate() throws EngineException, EngineStateError {
 		synthesizer.deallocate();
 	}
 
@@ -61,31 +90,12 @@ public class SpeechUtils {
 
 	public static void main(String[] args) throws Exception {
 		System.setProperty("mbrola.base", "C:\\lnx1\\home\\ggon\\git-projects\\mbrola");
-		SpeechUtils su = new SpeechUtils();
-		
-		//have to be setup on your env
+		TextToVoice su = new TextToVoice();
 		su.init("mbrola_us1");
-		
-		//default
-		//su.init("kevin16");	
-		//su.init("kevin");
-		//su.doSpeak("Hello world!");
-		//su.doSpeak(SAMPLE);
-		
 		su.doSpeak("balance");
 		su.doSpeak("weather");
 		su.doSpeak("account manager");
-		
-		//http://festvox.org/cmu_arctic/
-		
-		String filePath = "C:\\lnx1\\home\\ggon\\git-projects\\forecast.txt";
-		String content = new String(Files.readAllBytes(Paths.get(filePath)));
-		System.out.println(content);
-		
-		su.doSpeak(content);
-
 		su.terminate();
 	}
 	
-	final static String SAMPLE = "Wiki said, Floyd Mayweather, Jr. is an American professional boxer. He is currently undefeated as a professional and is a five-division world champion, having won ten world titles and the lineal championship in four different weight classes";
 }

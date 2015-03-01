@@ -1,0 +1,52 @@
+#JSGF V1.0;
+
+grammar sample;
+
+public <s> = <simple> ;
+
+<simple> = what can i say
+           | go back
+           | hello
+           | hello there
+           | hello judy
+           | goodbye
+           | goodbye judy
+           | fine thanks 
+           | thanks
+           | thanks judy
+           | yes please
+           | what is your name
+           | who are you
+           | where do you live
+           | what do you know
+           | how old are you
+           | who made you
+           | what is your favorite band
+           | who is the vice president at the university of windsor
+           | who is the president at the university of windsor
+           | who is the president of sun microsystems canada
+           | who is the executive dean of science at the university of windsor
+           | who is the dean of science at the university of windsor
+           | tell me a poem
+           | know any poems
+           | tell me a joke
+           | know any jokes
+           | who is monty
+           | can I talk to monty
+           | can I talk to judy
+           | who is solar man
+	       | who do you know
+           | can I talk to solar man;
+
+<link> = <application> [please]
+       |  go to <application> [please]
+       | can i (talk | speak) (to | with) <application> [please];
+
+<application> = Judy 
+   	      | Monty
+	      | Solar man
+	      | PeTE
+	      | Geoman
+	      | readAbook
+	      | Public Domain SpeechWeb;
+	      
